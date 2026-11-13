@@ -5,6 +5,12 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Missing build files must 404 rather than fall through to index.html (also in public/_redirects).
+[[redirects]]
+  from = "/assets/*"
+  to = "/404"
+  status = 404
+
 # SPA fallback — deep links and refresh must serve index.html (also in public/_redirects).
 [[redirects]]
   from = "/*"
@@ -22,3 +28,4 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"

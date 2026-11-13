@@ -74,7 +74,7 @@ export default function DashboardPage() {
       </section>
 
       <section className="grid grid-cols-2 gap-4 sm:grid-cols-4" aria-label="Performance metrics">
-        <PerformanceTile icon={CircleDollarSign} label="Won revenue" value={formatCompactCurrency(kpis.wonRevenue)} />
+        <PerformanceTile icon={CircleDollarSign} label="Won this month" value={formatCompactCurrency(kpis.wonRevenue)} />
         <PerformanceTile icon={Percent} label="Lead conversion" value={`${formatWhole(kpis.conversion)}%`} />
         <PerformanceTile icon={GitBranch} label="Completed deals" value={String(kpis.completedDeals)} />
         <PerformanceTile icon={CheckSquare} label="Tasks completed" value={`${formatWhole(kpis.taskCompletion)}%`} />

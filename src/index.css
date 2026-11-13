@@ -11,7 +11,7 @@
 
   --color-ink: #120a1f;
   --color-ink-muted: #5c5470;
-  --color-ink-subtle: #8b839c;
+  --color-ink-subtle: #6e667f;
 
   --color-plum-950: #1a0b2e;
   --color-plum-900: #2d1452;
@@ -209,6 +209,12 @@ html {
   overflow-x: clip;
   scrollbar-gutter: stable;
   scrollbar-color: #c4b8e8 transparent;
+  --host-badge-space: 0px;
+}
+
+/* A hosting badge pinned bottom-right (202×64px, max z-index) sits above the app; keep controls out from under it. */
+html.host-badge {
+  --host-badge-space: 4rem;
 }
 
 input::-webkit-calendar-picker-indicator {

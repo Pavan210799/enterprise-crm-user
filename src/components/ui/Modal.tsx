@@ -74,8 +74,8 @@ export function Modal({ open, onClose, title, description, children, footer, siz
             <X className="size-4" />
           </Button>
         </div>
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5 sm:px-6">{children}</div>
-        {footer ? <div className="shrink-0 border-t border-border/70 bg-surface-raised px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-6">{footer}</div> : null}
+        <div className={cn('min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pt-5 sm:px-6', footer ? 'pb-5' : 'pb-[max(1.25rem,var(--host-badge-space))]')}>{children}</div>
+        {footer ? <div className="shrink-0 border-t border-border/70 bg-surface-raised px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom),var(--host-badge-space))] sm:px-6">{footer}</div> : null}
       </div>
     </div>,
     document.body,

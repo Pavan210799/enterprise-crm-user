@@ -36,7 +36,7 @@ export function DashboardLayout() {
         )}
       >
         <Topbar title={title} />
-        <main data-app-shell className="mx-auto w-full max-w-[1600px] min-w-0 flex-1 px-4 pt-5 pb-24 sm:px-6 sm:pt-6 lg:px-8">
+        <main data-app-shell className="mx-auto w-full max-w-[1600px] min-w-0 flex-1 px-4 pt-5 pb-[calc(6rem+var(--host-badge-space))] sm:px-6 sm:pt-6 lg:px-8">
           <Suspense fallback={skeleton}>
             <RouteLoader key={pathname} fallback={<div className="animate-fade-in">{skeleton}</div>}>
               <div className="animate-page-in">

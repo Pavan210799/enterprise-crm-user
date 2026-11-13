@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 import { ConfirmDialog } from '@/components/ui/ConfirmDialog'
 import { PERMISSION_GROUPS, can } from '@/lib/permissions'
-import { formatDay } from '@/lib/format'
+import { formatMonthYear } from '@/lib/format'
 import { cn } from '@/lib/cn'
 import type { AuthUser } from '@/types'
 
@@ -22,7 +22,7 @@ export function AccountPanel({ user }: { user: AuthUser }) {
   const details = [
     { icon: Building2, label: 'Company', value: user.company },
     { icon: UserCog, label: 'Role', value: user.roleLabel },
-    { icon: CalendarDays, label: 'Member since', value: user.joinedAt ? formatDay(user.joinedAt) : '—' },
+    { icon: CalendarDays, label: 'Member since', value: user.joinedAt ? formatMonthYear(user.joinedAt) : '—' },
   ]
 
   return (

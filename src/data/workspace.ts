@@ -122,7 +122,7 @@ export function createNotifications(now = new Date()): AppNotification[] {
     { id: 'note_02', kind: 'task', title: 'Task due today', message: 'Call Helena about the demo is due today.', createdAt: atHour(0, 8, now), read: false, link: '/tasks' },
     { id: 'note_03', kind: 'deal', title: 'Deal moved to negotiation', message: 'Marlow renewal is ready for a close plan.', createdAt: atHour(-2, 15, now), read: false, link: '/pipeline' },
     { id: 'note_04', kind: 'meeting', title: 'Meeting tomorrow', message: 'Cedar site visit still needs a calendar hold.', createdAt: atHour(-1, 17, now), read: true, link: '/activities' },
-    { id: 'note_05', kind: 'lead', title: 'Follow-up reminder', message: 'Brightline Retail has not been contacted yet.', createdAt: atHour(-4, 11, now), read: true, link: '/leads' },
+    { id: 'note_05', kind: 'task', title: 'Follow-up reminder', message: 'Brightline Retail has not been contacted yet.', createdAt: atHour(-4, 11, now), read: true, link: '/leads' },
   ]
 }
 

@@ -42,7 +42,7 @@ export function SidebarNav({ collapsed = false, onNavigate }: SidebarNavProps) {
             {collapsed ? (
               <div className="mx-auto mb-2 h-px w-8 bg-white/10" aria-hidden />
             ) : (
-              <p className="mb-2 px-3 text-[11px] font-semibold tracking-[0.18em] text-white/35 uppercase">{section.title}</p>
+              <p className="mb-2 px-3 text-[11px] font-semibold tracking-[0.18em] text-white/55 uppercase">{section.title}</p>
             )}
             <ul className="space-y-1">
               {section.items.map((item) => {
@@ -104,7 +104,7 @@ export function SidebarNav({ collapsed = false, onNavigate }: SidebarNavProps) {
         ))}
       </nav>
 
-      <div className={cn('shrink-0 border-t border-white/10 p-3', collapsed && 'px-2')}>
+      <div className={cn('shrink-0 border-t border-white/10 p-3 max-lg:pb-[max(0.75rem,var(--host-badge-space))]', collapsed && 'px-2')}>
         <div
           className={cn(
             'flex items-center gap-3 rounded-2xl bg-white/[0.06] p-2.5 ring-1 ring-white/10 transition-colors hover:bg-white/10',
@@ -115,7 +115,7 @@ export function SidebarNav({ collapsed = false, onNavigate }: SidebarNavProps) {
           {!collapsed ? (
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-semibold text-white">{user?.name}</p>
-              <p className="truncate text-xs text-white/50">{user?.roleLabel}</p>
+              <p className="truncate text-xs text-white/60">{user?.roleLabel}</p>
             </div>
           ) : null}
           <button

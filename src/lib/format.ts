@@ -33,6 +33,13 @@ export function formatDay(value: string) {
   return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(date)
 }
 
+export function formatMonthYear(value: string) {
+  const match = /^(\d{4})-(\d{2})/.exec(value)
+  const date = match ? new Date(Number(match[1]), Number(match[2]) - 1, 1) : new Date(value)
+  if (Number.isNaN(date.getTime())) return '—'
+  return new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(date)
+}
+
 export function timeAgo(iso: string, now = Date.now()) {
   const diff = Math.round((now - new Date(iso).getTime()) / 1000)
   const future = diff < 0

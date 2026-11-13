@@ -3,7 +3,9 @@ import {
   BIO_LIMIT,
   compactErrors,
   passwordStrength,
+  validateConfirmPassword,
   validateEmail,
+  validateNewPassword,
   validateOtp,
   validatePassword,
   validatePasswordChange,
@@ -12,6 +14,16 @@ import {
 } from './validation'
 
 describe('validation', () => {
+  it('applies the same new-password rules to reset and change flows', () => {
+    expect(validateNewPassword('')).toBe('Password is required')
+    expect(validateNewPassword('short')).toBe('Use at least 8 characters')
+    expect(validateNewPassword('abcdefgh')).toMatch(/Mix upper/)
+    expect(validateNewPassword('Pipeline@2025')).toBeUndefined()
+    expect(validateConfirmPassword('', 'Pipeline@2025')).toBe('Confirm your new password')
+    expect(validateConfirmPassword('Pipeline@2024', 'Pipeline@2025')).toBe('Passwords do not match')
+    expect(validateConfirmPassword('Pipeline@2025', 'Pipeline@2025')).toBeUndefined()
+  })
+
   it('requires a real work email', () => {
     expect(validateEmail('')).toBe('Email is required')
     expect(validateEmail('maya')).toMatch(/valid email/)

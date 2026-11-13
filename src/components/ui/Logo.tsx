@@ -55,7 +55,7 @@ export function Logo({ compact = false, tone = 'light', className }: LogoProps) 
           <span
             className={cn(
               'block truncate text-[10px] font-semibold tracking-[0.22em] uppercase',
-              tone === 'light' ? 'text-white/45' : 'text-ink-subtle',
+              tone === 'light' ? 'text-white/60' : 'text-ink-subtle',
             )}
           >
             User workspace

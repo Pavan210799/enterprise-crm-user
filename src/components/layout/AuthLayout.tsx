@@ -6,9 +6,9 @@ import { AuthSkeleton } from '@/components/ui/Skeleton'
 import { RouteLoader } from './RouteLoader'
 
 const highlights = [
-  { icon: UserRound, title: 'Your workspace', text: 'Leads, deals, and tasks scoped to the work assigned to you.' },
-  { icon: ShieldCheck, title: 'One shared book', text: 'Every signed-in user opens the same leads, deals, customers, and tasks.' },
-  { icon: Sparkles, title: 'Same NexRel system', text: 'The user panel follows the admin visual language, end to end.' },
+  { icon: UserRound, title: 'Your day at a glance', text: 'Leads, deals, tasks, and follow-ups together in one workspace.' },
+  { icon: ShieldCheck, title: 'Built for your role', text: 'Employees, sales reps, and managers each get the actions their role allows.' },
+  { icon: Sparkles, title: 'Insight as you work', text: 'Live reports on revenue, lead conversion, and task progress.' },
 ]
 
 export function AuthLayout() {

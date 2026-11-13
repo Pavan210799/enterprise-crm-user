@@ -41,14 +41,7 @@ export default function LoginPage() {
     <AuthCard
       title="Welcome back"
       subtitle="Sign in to your NexRel workspace to continue."
-      footer={
-        <span>
-          Need a reset?{' '}
-          <Link to="/forgot-password" className="font-semibold text-brand transition hover:text-orchid">
-            Forgot password
-          </Link>
-        </span>
-      }
+      footer={<span>Accounts are created by your NexRel admin.</span>}
     >
       {error ? <FormAlert message={error} /> : null}
       <form className="space-y-4" onSubmit={handleSubmit} noValidate>

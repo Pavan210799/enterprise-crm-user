@@ -13,7 +13,7 @@ export const selectDeals = (state: State) => state.workspace.deals
 export const selectTasks = (state: State) => state.workspace.tasks
 export const selectActivities = (state: State) => state.workspace.activities
 const selectNotificationList = (state: State) => state.workspace.notifications
-export const selectPerformance = (state: State) => state.workspace.performance
+const selectPerformanceHistory = (state: State) => state.workspace.performance
 
 export const selectNotifications = createSelector([selectNotificationList], (notifications) =>
   [...notifications].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()),
@@ -57,6 +57,16 @@ export const selectKpis = createSelector([selectLeads, selectCustomers, selectDe
       pendingTasks: percentChange(pending.length, KPI_PREVIOUS.pendingTasks),
     },
   }
+})
+
+/** Monthly history where the current month reflects the live book, so wins and lead changes show up in charts. */
+export const selectPerformance = createSelector([selectPerformanceHistory, selectKpis, selectLeads], (history, kpis, leads) => {
+  if (!history.length) return history
+  const current = history[history.length - 1]
+  return [
+    ...history.slice(0, -1),
+    { ...current, revenue: kpis.wonRevenue, leads: leads.length, converted: leads.filter((lead) => lead.status === 'won').length },
+  ]
 })
 
 export const selectTodayFocus = createSelector([selectTasks], (tasks) => {

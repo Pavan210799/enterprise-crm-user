@@ -49,7 +49,7 @@ export default function ReportsPage() {
         ['NexRel personal report', user?.name ?? '', `Last ${range} months`, new Date().toLocaleDateString('en-US')],
         [],
         ['Metric', 'Value'],
-        ['Won revenue', revenue],
+        ['Revenue', revenue],
         ['Target', target],
         ['Target attainment %', attainment],
         ['Lead conversion %', rates.conversion],
@@ -96,7 +96,7 @@ export default function ReportsPage() {
       </section>
 
       <section className="stagger grid grid-cols-2 gap-3 xl:grid-cols-4" aria-label="Report summary">
-        <StatTile icon={CircleDollarSign} label="Won revenue" value={formatCompactCurrency(revenue)} tone="brand" hint={`${attainment}% of ${formatCompactCurrency(target)} target`} />
+        <StatTile icon={CircleDollarSign} label={`Revenue · ${range} months`} value={formatCompactCurrency(revenue)} tone="brand" hint={`${attainment}% of ${formatCompactCurrency(target)} target`} />
         <StatTile icon={Percent} label="Lead conversion" value={`${rates.conversion}%`} tone="aurora" hint={`${rates.won} of ${rates.total} leads won`} />
         <StatTile icon={Trophy} label="Completed deals" value={outcomes.wonCount} tone="success" hint={`${outcomes.winRate}% win rate · avg ${formatCompactCurrency(outcomes.avgWon)}`} />
         <StatTile icon={CheckSquare} label="Task completion" value={`${tasks.completionRate}%`} tone="orchid" hint={`${tasks.completed} of ${tasks.total} tasks done`} />

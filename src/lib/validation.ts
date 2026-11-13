@@ -37,6 +37,16 @@ export function passwordStrength(value: string) {
   return { score, label: labels[score] }
 }
 
+export function validateNewPassword(value: string) {
+  return validatePassword(value) ?? (passwordStrength(value).score < 3 ? 'Mix upper and lower case letters, numbers, or symbols' : undefined)
+}
+
+export function validateConfirmPassword(confirm: string, password: string) {
+  if (!confirm) return 'Confirm your new password'
+  if (confirm !== password) return 'Passwords do not match'
+  return undefined
+}
+
 export function validateOtp(value: string) {
   if (!value.trim()) return 'Enter the 6-digit code'
   if (!/^\d{6}$/.test(value.trim())) return 'The code must be 6 digits'
@@ -58,13 +68,9 @@ export function validatePasswordChange(values: { currentPassword: string; newPas
   return compactErrors({
     currentPassword: values.currentPassword ? undefined : 'Enter your current password',
     newPassword:
-      validatePassword(values.newPassword) ??
-      (passwordStrength(values.newPassword).score < 3
-        ? 'Mix upper and lower case letters, numbers, or symbols'
-        : values.newPassword === values.currentPassword
-          ? 'Choose a password different from your current one'
-          : undefined),
-    confirmPassword: !values.confirmPassword || values.confirmPassword !== values.newPassword ? 'Passwords do not match' : undefined,
+      validateNewPassword(values.newPassword) ??
+      (values.newPassword === values.currentPassword ? 'Choose a password different from your current one' : undefined),
+    confirmPassword: validateConfirmPassword(values.confirmPassword, values.newPassword),
   })
 }
 

@@ -42,7 +42,7 @@ export function BackToTop() {
         window.scrollTo({ top: 0, behavior: reduce ? 'instant' : 'smooth' })
       }}
       className={cn(
-        'group fixed right-4 bottom-4 z-40 grid size-12 place-items-center rounded-full bg-plum-900 text-white shadow-[0_14px_34px_-8px_rgb(45_20_82_/_0.6)] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:bg-brand sm:right-6 sm:bottom-6',
+        'group fixed right-4 bottom-[calc(1rem+var(--host-badge-space))] z-40 grid size-12 place-items-center rounded-full bg-plum-900 text-white shadow-[0_14px_34px_-8px_rgb(45_20_82_/_0.6)] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:bg-brand sm:right-6 sm:bottom-[calc(1.5rem+var(--host-badge-space))]',
         visible ? 'translate-y-0 scale-100 opacity-100' : 'pointer-events-none translate-y-6 scale-75 opacity-0',
       )}
     >

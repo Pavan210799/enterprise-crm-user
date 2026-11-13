@@ -6,7 +6,7 @@ import { clearAuthError, readResetGrant, resetPassword } from '@/features/auth/a
 import { pushToast } from '@/features/toasts/toastsSlice'
 import { AuthCard, FormAlert, PasswordInput, PasswordStrength } from '@/components/auth/AuthCard'
 import { Button } from '@/components/ui/Button'
-import { compactErrors, validatePassword } from '@/lib/validation'
+import { compactErrors, validateConfirmPassword, validateNewPassword } from '@/lib/validation'
 
 export default function ResetPasswordPage() {
   const dispatch = useAppDispatch()
@@ -29,8 +29,8 @@ export default function ResetPasswordPage() {
     event.preventDefault()
     if (!grant) return
     const next = compactErrors({
-      password: validatePassword(password),
-      confirm: confirm !== password || !confirm ? 'Passwords do not match' : undefined,
+      password: validateNewPassword(password),
+      confirm: validateConfirmPassword(confirm, password),
     })
     setErrors(next)
     if (Object.keys(next).length) return
