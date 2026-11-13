@@ -1,0 +1,16 @@
+import { lazy } from 'react'
+
+export const LoginPage = lazy(() => import('@/pages/auth/LoginPage'))
+export const ForgotPasswordPage = lazy(() => import('@/pages/auth/ForgotPasswordPage'))
+export const VerifyOtpPage = lazy(() => import('@/pages/auth/VerifyOtpPage'))
+export const ResetPasswordPage = lazy(() => import('@/pages/auth/ResetPasswordPage'))
+export const DashboardPage = lazy(() => import('@/pages/DashboardPage'))
+export const LeadsPage = lazy(() => import('@/pages/LeadsPage'))
+export const CustomersPage = lazy(() => import('@/pages/CustomersPage'))
+export const CustomerDetailPage = lazy(() => import('@/pages/CustomerDetailPage'))
+export const PipelinePage = lazy(() => import('@/pages/PipelinePage'))
+export const TasksPage = lazy(() => import('@/pages/TasksPage'))
+export const ActivitiesPage = lazy(() => import('@/pages/ActivitiesPage'))
+export const NotificationsPage = lazy(() => import('@/pages/NotificationsPage'))
+export const ReportsPage = lazy(() => import('@/pages/ReportsPage'))
+export const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
